@@ -1,0 +1,9 @@
+PySide6>=6.7,<7
+psycopg[binary]>=3.2,<4
+psycopg_pool>=3.2,<4
+python-dotenv>=1.0,<2
+bcrypt>=4.2,<6
+Pillow>=10.4,<12
+matplotlib>=3.9,<4
+openpyxl>=3.1,<4
+reportlab>=4.2,<5

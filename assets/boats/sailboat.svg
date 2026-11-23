@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720">
+<defs><linearGradient id="sea" y2="1"><stop stop-color="#bfe8ee"/><stop offset="1" stop-color="#3386a1"/></linearGradient><linearGradient id="sky" y2="1"><stop stop-color="#dff2f6"/><stop offset="1" stop-color="#fff3de"/></linearGradient></defs>
+<rect width="1200" height="720" fill="url(#sky)"/><circle cx="940" cy="145" r="64" fill="#efc778"/>
+<path d="M0 445 Q180 400 360 445 T720 440 T1200 430 V720 H0Z" fill="url(#sea)"/><path d="M0 540 Q200 510 400 540 T800 535 T1200 520" fill="none" stroke="#c8f0f1" stroke-width="8" opacity=".7"/>
+<path d="M250 494 H960 L845 584 H350Z" fill="#f8f7f1"/><path d="M605 150 V482" stroke="#143957" stroke-width="17"/><path d="M582 182 L365 445 H582Z" fill="#fff"/><path d="M629 204 L818 445 H629Z" fill="#d4ebec"/><path d="M380 473 H835" stroke="#0e364f" stroke-width="10"/><path d="M405 514 H833" stroke="#c89b54" stroke-width="8"/>
+<text x="64" y="92" font-family="Segoe UI,sans-serif" font-size="24" fill="#55798a">ДЕМОНСТРАЦИОННАЯ ИЛЛЮСТРАЦИЯ</text></svg>

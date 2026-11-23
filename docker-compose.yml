@@ -1,0 +1,31 @@
+name: yacht-club-manager
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: yacht-club-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-yacht_club_manager}
+      POSTGRES_USER: ${POSTGRES_ADMIN_USER:-yacht_admin}
+      POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:?Copy .env.example to .env or launch main.py once}
+      POSTGRES_APP_USER: ${POSTGRES_APP_USER:-yacht_app}
+      POSTGRES_APP_PASSWORD: ${POSTGRES_APP_PASSWORD:?Launch main.py once to create a local .env}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "127.0.0.1:${DB_PORT:-55432}:5432"
+    volumes:
+      - yacht_postgres_data:/var/lib/postgresql/data
+      - ./sql/001_schema.sql:/docker-entrypoint-initdb.d/001_schema.sql:ro
+      - ./sql/002_roles_and_permissions.sql:/docker-entrypoint-initdb.d/002_roles_and_permissions.sql:ro
+      - ./sql/003_seed.sql:/docker-entrypoint-initdb.d/003_seed.sql:ro
+      - ./sql/004_grants.sql:/docker-entrypoint-initdb.d/004_grants.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
+
+volumes:
+  yacht_postgres_data:
+    name: yacht_club_manager_data
